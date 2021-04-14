@@ -26,3 +26,12 @@ To build for production, run build:
 ```
 $ npm run build
 ```
+
+      let results = []
+      data.response.venues.forEach((venue, i) => {
+        results.push({
+          name: venue.name,
+          contact: venue.contact,
+          url: venue.url
+        })
+      })
