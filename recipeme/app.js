@@ -24,8 +24,9 @@ const config = {
 vertex.configureApp(app, config)
 // create new main route
 const main = require('./routes/main')
-app.use('/',main)
 
+
+app.use('/',main)
 // // import routes
 // //const index = require('./routes/index')
 // //const api = require('./routes/api') // sample API Routes

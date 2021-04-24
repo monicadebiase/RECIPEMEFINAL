@@ -1,9 +1,12 @@
+
 const turbo = require('turbo360')({site_id: process.env.TURBO_APP_ID})
 const vertex = require('vertex360')({site_id: process.env.TURBO_APP_ID})
 
 const express = require('express')
+
 const router = express.Router()
 const superagent = require('superagent')
+
 
 router.get('/', (req, res, next) => {
 
@@ -14,7 +17,7 @@ router.get('/', (req, res, next) => {
 
 router.get('/blog', (req, res, next) => {
 
-	const data = req.context
+  const data = req.context
 
 	res.render('blog', data)
 })
@@ -23,20 +26,24 @@ router.get('/blog', (req, res, next) => {
 router.get('/:page', function(req, res){
   var page = req.params.page
 
-//  if (page == 'foursquare'){
-//    if (req.query.query == null){
-//      res.json({
-//        confirmation: 'fail',
-//    message: 'Missing query paramter'
-//    })
-//      return
-//    }
-
-    // http://localhost:3000/foursquare?near=chicago&query=bagels
   if (page == 'edamam'){
+
+
+    var dish = req.query.q
+    var diet = req.query.diet
+
+    if (dish == null){
+      res.json({
+        confirmation: 'fail',
+        message: 'Please enter a query paramter!'
+      })
+      return
+    }
+
+
     const endpoint = 'https://api.edamam.com/search'
     const query = {
-      q: 'chicken',
+      q: dish,
       app_key: process.env.TURBO_APP_ID,
       app_id: '40eac79a'
     }
@@ -76,7 +83,5 @@ router.get('/:page', function(req, res){
   }
 
 })
-
-
 
 module.exports = router
