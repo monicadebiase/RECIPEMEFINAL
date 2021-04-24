@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {{>header}}
+  </head>
+  <body class="container">
+
+    {{>nav}}
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3" style="text-align:center;margin-bottom:48px">
+        <h1>Recipes Curation</h1>
+        <hr />
+
+
+
+
+        {{#feed}}
+        <div>
+          <img style="width:260px" src="{{image}}" />
+          <h2>{{label}}</h2>
+        </div>
+        {{/feed}}
+
+
+      </div>
+    </div>
+
+
+
+
+    <footer class="ftco-footer ftco-bg-dark ftco-section">
+      {{>footer}}
+    </footer>
+
+    {{>scripts}}
+
+
+
+  </body>
+</html>
