@@ -2,13 +2,12 @@
 <html lang="en">
   <head>
     {{>header}}
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
   </head>
   <body>
 
 	  {{>nav}}
     <!-- END nav -->
-
-    {{data.user}}
 
     <section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_4.jpg');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
@@ -23,6 +22,53 @@
     </section>
 
     {{data}}
+
+  <div class="container">
+  <h3>Bootstrap image checkbox(multiple)</h3>
+
+  <form action="/edamam" method="GET">
+    <div class="col-xs-4 col-sm-3 col-md-2 nopad text-center">
+      <label for="user" class="image-checkbox">
+        <img class="img-responsive" src="/images/bg_1.jpg" />
+        <input me="user" id="user" value="schronic" type="checkbox" name="image[]" value="" style="width:130px;height:130px" />
+        <i class="fa fa-check hidden"></i>
+      </label>
+    </div>
+    <div class="col-xs-4 col-sm-3 col-md-2 nopad text-center">
+      <label class="image-checkbox">
+        <img class="img-responsive" src="https://dummyimage.com/600x400/000/fff" />
+        <input type="checkbox" name="image[]" value="" />
+        <i class="fa fa-check hidden"></i>
+      </label>
+    </div>
+    <div class="col-xs-4 col-sm-3 col-md-2 nopad text-center">
+      <label class="image-checkbox">
+        <img class="img-responsive" src="https://dummyimage.com/600x400/000/fff" />
+        <input type="checkbox" name="image[]" value="" />
+        <i class="fa fa-check hidden"></i>
+      </label>
+    </div>
+    <div class="col-xs-4 col-sm-3 col-md-2 nopad text-center">
+      <label class="image-checkbox">
+        <img class="img-responsive" src="https://dummyimage.com/600x400/000/fff" />
+        <input type="checkbox" name="image[]" value="" />
+        <i class="fa fa-check hidden"></i>
+      </label>
+    </div>
+    <div class="col-xs-4 col-sm-3 col-md-2 nopad text-center">
+      <label class="image-checkbox">
+        <img class="img-responsive" src="https://dummyimage.com/600x400/000/fff" />
+        <input type="checkbox" name="image[]" value="" />
+        <i class="fa fa-check hidden"></i>
+      </label>
+    </div>
+    <div>
+      <button>Submit</button>
+    </div>
+  </form>
+  </div>
+
+
 
 		<section class="ftco-section bg-light">
 			<div class="container">
@@ -155,6 +201,7 @@
 
   <!-- loader -->
   {{>scripts}}
+
 
   </body>
   }

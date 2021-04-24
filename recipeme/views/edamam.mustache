@@ -14,23 +14,6 @@
 
 
 
-
-        <form action="/blog" method="GET">
-          <div>
-            <label for="query">What greeting do you want to say?</label>
-            <input name="user" id="user" value="schronic">
-          </div>
-          <div>
-            <label for="query">Who do you want to say it to?</label>
-            <input name="query" id="query" value="chicken">
-          </div>
-          <div>
-            <button>Send my greetings</button>
-          </div>
-        </form>
-
-
-
         {{#feed}}
         <div>
           <img style="width:260px" src="{{image}}" />
@@ -50,22 +33,7 @@
     </footer>
 
     {{>scripts}}
-    <script> $.ajax({
-      url: "https://api.edamam.com/search",
-      type: "get", //send it through get method
-      data: {
-        q: 'chicken',
-        app_key: process.env.TURBO_APP_ID,
-        app_id: '40eac79a'
-      },
-      success: function(response) {
-        //Do Something
-      },
-      error: function(xhr) {
-        //Do Something to handle error
-      }
-    });
-  </script>
+
 
 
   </body>

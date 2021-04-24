@@ -50,9 +50,23 @@ router.get('/:page', function(req, res){
 
 
   if (page == 'edamam'){
+
+
+    var dish = req.query.q
+    var diet = req.query.diet
+
+    if (dish == null){
+      res.json({
+        confirmation: 'fail',
+        message: 'Please enter a query paramter!'
+      })
+      return
+    }
+
+
     const endpoint = 'https://api.edamam.com/search'
     const query = {
-      q: 'chicken',
+      q: dish,
       app_key: process.env.TURBO_APP_ID,
       app_id: '40eac79a'
     }
