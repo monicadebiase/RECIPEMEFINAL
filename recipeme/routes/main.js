@@ -15,73 +15,59 @@ router.get('/', (req, res, next) => {
 	res.render('home', data)
 })
 
-router.get('/blog', (req, res, next) => {
+router.get('/curation', (req, res, next) => {
 
   const data = req.context
 
 	res.render('blog', data)
 })
 
+router.get('/recipes', (req, res, next) => {
 
-router.get('/:page', function(req, res){
-  var page = req.params.page
+  var dish = req.query.q
+  var diet = req.query.diet
 
-  if (page == 'edamam'){
-
-
-    var dish = req.query.q
-    var diet = req.query.diet
-
-    if (dish == null){
-      res.json({
-        confirmation: 'fail',
-        message: 'Please enter a query paramter!'
-      })
-      return
-    }
+  //if (dish == null){
+  //  res.json({
+  //    confirmation: 'fail',
+  //    message: 'Please enter a query paramter!'
+  //  })
+  //  return
+  //}
 
 
-    const endpoint = 'https://api.edamam.com/search'
-    const query = {
-      q: dish,
-      app_key: process.env.TURBO_APP_ID,
-      app_id: '40eac79a'
-    }
-
-    superagent.get(endpoint)
-    .query(query)
-    .set('Accept', 'application/json')
-    .end((err, response) => {
-      if (err){
-        res.json({
-          confirmation: 'fail',
-          message: err.message
-        })
-
-        return
-      }
-
-      const data = response.body || response.text
-
-      let feed = []
-      data.hits.forEach((post, i) => {
-
-        feed.push({
-          label: post.recipe.label,
-          image: post.recipe.image,
-          url: post.recipe.url,
-          yield: post.recipe.yield,
-          ingr: post.recipe.ingredients
-        })
-
-      })
-
-
-      res.render('edamam', {feed: feed})
-      return
-    })
+  const endpoint = 'https://api.edamam.com/search'
+  const query = {
+    q: dish,
+    app_key: process.env.TURBO_APP_ID,
+    app_id: '40eac79a'
   }
 
+  superagent.get(url)
+  .query(null)
+  .set('Accept', 'application/json')
+  .end((err, response) => {
+    if (err){
+      res.json({
+        confirmation: 'fail',
+        message: err.message
+      })
+      return
+    }
+
+    const data = response.body || response.text
+
+    let feed = []
+    data.user.media.nodes.forEach((post, i) => {
+      feed.push({
+        image: post.thumbnail_src,
+        caption: post.caption
+      })
+    })
+
+    res.render('recipes', {feed: feed})
+    //return
+  })
 })
 
 module.exports = router
