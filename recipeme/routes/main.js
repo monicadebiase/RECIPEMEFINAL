@@ -3,7 +3,6 @@ const turbo = require('turbo360')({site_id: process.env.TURBO_APP_ID})
 const vertex = require('vertex360')({site_id: process.env.TURBO_APP_ID})
 
 const express = require('express')
-const axios = require('axios')
 
 const router = express.Router()
 const superagent = require('superagent')
@@ -26,28 +25,6 @@ router.get('/blog', (req, res, next) => {
 
 router.get('/:page', function(req, res){
   var page = req.params.page
-
-//  if (page == 'foursquare'){
-//    if (req.query.query == null){
-//      res.json({
-//        confirmation: 'fail',
-//    message: 'Missing query paramter'
-//    })
-//      return
-//    }
-
-    // http://localhost:3000/foursquare?near=chicago&query=bagels
-
-  //const selectedFile = document.getElementById('input').value
-
-  if (page == 'fetch'){
-    res.render('fetch')
-  }
-
-  if (page == 'ajax'){
-    res.render('ajax')
-  }
-
 
   if (page == 'edamam'){
 
@@ -107,22 +84,4 @@ router.get('/:page', function(req, res){
 
 })
 
-router.get('/axios/:sub', async (req, res) => {
-  try {
-    const payload = await axios({
-      url: `https://www.reddit.com/r/${req.params.sub}.json`,
-      method: 'get',
-      headers: { Accept: 'application/json' }
-    })
-
-    // parse out desired data from the response:
-    const response = payload.data
-    const { data } = response
-    const { children } = data
-
-    res.render('axios', { feed: children, sub: req.params.sub })
-  } catch (error) {
-    res.send(`ERROR. Something went wrong: ${error.message}`)
-  }
-})
 module.exports = router
