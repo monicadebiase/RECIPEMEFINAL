@@ -15,59 +15,70 @@ router.get('/', (req, res, next) => {
 	res.render('home', data)
 })
 
-router.get('/curation', (req, res, next) => {
+router.get('/recipes', (req, res, next) => {
 
   const data = req.context
 
-	res.render('blog', data)
+	res.render('recipes1', data)
 })
 
-router.get('/recipes', (req, res, next) => {
 
-  var dish = req.query.q
-  var diet = req.query.diet
-
-  //if (dish == null){
-  //  res.json({
-  //    confirmation: 'fail',
-  //    message: 'Please enter a query paramter!'
-  //  })
-  //  return
-  //}
+router.get('/curation', function(req, res){
 
 
-  const endpoint = 'https://api.edamam.com/search'
-  const query = {
-    q: dish,
-    app_key: process.env.TURBO_APP_ID,
-    app_id: '40eac79a'
-  }
+    var dish = req.query.q
+    var diet = req.query.diet
 
-  superagent.get(url)
-  .query(null)
-  .set('Accept', 'application/json')
-  .end((err, response) => {
-    if (err){
+    if (dish == null){
       res.json({
         confirmation: 'fail',
-        message: err.message
+        message: 'Please enter a query paramter!'
       })
       return
     }
 
-    const data = response.body || response.text
 
-    let feed = []
-    data.user.media.nodes.forEach((post, i) => {
-      feed.push({
-        image: post.thumbnail_src,
-        caption: post.caption
+    const endpoint = 'https://api.edamam.com/search'
+    const query = {
+      q: dish,
+      app_key: process.env.TURBO_APP_ID,
+      app_id: '40eac79a'
+    }
+
+    superagent.get(endpoint)
+    .query(query)
+    .set('Accept', 'application/json')
+    .end((err, response) => {
+      if (err){
+        res.json({
+          confirmation: 'fail',
+          message: err.message
+        })
+
+        return
+      }
+
+      const data = response.body || response.text
+
+      let feed = []
+      data.hits.forEach((post, i) => {
+
+        feed.push({
+          label: post.recipe.label,
+          image: post.recipe.image,
+          url: post.recipe.url,
+          yield: post.recipe.yield,
+          ingr: post.recipe.ingredients
+        })
+
       })
+
+
+      res.render('recipes2', {feed: feed})
+      return
     })
 
-    res.render('recipes', {feed: feed})
-    //return
-  })
+
 })
 
 module.exports = router
