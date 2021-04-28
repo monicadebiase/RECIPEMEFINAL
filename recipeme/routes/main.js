@@ -15,18 +15,15 @@ router.get('/', (req, res, next) => {
 	res.render('home', data)
 })
 
-router.get('/blog', (req, res, next) => {
+router.get('/recipes', (req, res, next) => {
 
   const data = req.context
 
-	res.render('blog', data)
+	res.render('recipes1', data)
 })
 
 
-router.get('/:page', function(req, res){
-  var page = req.params.page
-
-  if (page == 'edamam'){
+router.get('/curation', function(req, res){
 
 
     var dish = req.query.q
@@ -77,10 +74,10 @@ router.get('/:page', function(req, res){
       })
 
 
-      res.render('edamam', {feed: feed})
+      res.render('recipes2', {feed: feed})
       return
     })
-  }
+
 
 })
 
