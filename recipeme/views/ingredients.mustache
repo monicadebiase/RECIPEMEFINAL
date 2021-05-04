@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {{>header}}
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  </head>
+  <body>
+
+	  {{>nav}}
+    <!-- END nav -->
+
+    <section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_4.jpg');" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center">
+            <h1 class="mb-2 bread">Stories</h1>
+            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Blog <i class="ion-ios-arrow-forward"></i></span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {{data}}
+
+  <div class="container">
+  <h3>Ingredients</h3>
+
+  <form action="/curation" method="GET">
+    <div class="row">
+      <div class="col">
+        <label for="veg" class="image-checkbox" >
+          <img class="img-responsive" src="/images/Icons/2.png"/>
+          <input me="veg" id="veg" type="checkbox" name="veg"/>
+        </label>
+      </div>
+      <div class="col">
+        <label for="fish" class="image-checkbox" >
+          <img class="img-responsive" src="/images/Icons/4.png"/>
+          <input me="fish" id="fish" type="checkbox" name="fish"/>
+        </label>
+      </div>
+      <div class="col">
+        <label for="cond" class="image-checkbox" >
+          <img class="img-responsive" src="/images/Icons/5.png"/>
+          <input me="cond" id="cond" type="checkbox" name="cond"/>
+        </label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <label for="dairy" class="image-checkbox" >
+          <img class="img-responsive" src="/images/Icons/3.png"/>
+          <input me="dairy" id="dairy" type="checkbox" name="dairy"/>
+        </label>
+      </div>
+      <div class="col">
+        <label for="beans" class="image-checkbox" >
+          <img class="img-responsive" src="/images/Icons/11.png"/>
+          <input me="beans" id="beans" type="checkbox" name="beans"/>
+        </label>
+      </div>
+      <div class="col">
+        <label for="fruit" class="image-checkbox" >
+          <img class="img-responsive" src="/images/Icons/7.png"/>
+          <input me="fruit" id="fruit" type="checkbox" name="fruit"/>
+        </label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <label for="wheat" class="image-checkbox" >
+          <img class="img-responsive" src="/images/Icons/8.png"/>
+          <input me="wheat" id="wheat" type="checkbox" name="wheat"/>
+        </label>
+      </div>
+      <div class="col">
+        <label for="dessert" class="image-checkbox" >
+          <img class="img-responsive" src="/images/Icons/9.png"/>
+          <input me="dessert" id="dessert" type="checkbox" name="dessert" />
+        </label>
+      </div>
+      <div class="col">
+        <label for="meat" class="image-checkbox" >
+          <img class="img-responsive" src="/images/Icons/10.png"/>
+          <input me="meat" id="meat" type="checkbox" name="meat" />
+        </label>
+      </div>
+    </div>
+
+    <div>
+      <button>Submit</button>
+    </div>
+  </form>
+  </div>
+
+
+    <footer class="ftco-footer ftco-bg-dark ftco-section">
+        {{>footer}}
+    </footer>
+
+
+  <!-- loader -->
+  {{>scripts}}
+
+
+  </body>
+  }
+  }
+</html>
