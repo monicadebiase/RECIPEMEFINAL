@@ -37,25 +37,39 @@
                   <div class="text-center bs-wizard-stepnum">Step 1</div>
                   <div class="progress"><div class="progress-bar"></div></div>
                   <a href="#" class="bs-wizard-dot"></a>
-                  <div class="bs-wizard-info text-center">Add preferences</div>
+                  <div class="bs-wizard-info text-center">Choose Mealtype</div>
                 </div>
                 
                 <div class="col-xs-3 bs-wizard-step complete"><!-- complete -->
                   <div class="text-center bs-wizard-stepnum">Step 2</div>
                   <div class="progress"><div class="progress-bar"></div></div>
                   <a href="#" class="bs-wizard-dot"></a>
-                  <div class="bs-wizard-info text-center">Chosse Ingredients</div>
+                  <div class="bs-wizard-info text-center">Choose Main Ingredients</div>
+                </div>
+
+                <div class="col-xs-3 bs-wizard-step active"><!-- complete -->
+                  <div class="text-center bs-wizard-stepnum">Step 3</div>
+                  <div class="progress"><div class="progress-bar"></div></div>
+                  <a href="#" class="bs-wizard-dot"></a>
+                  <div class="bs-wizard-info text-center">Choose Allergies</div>
+                </div>
+
+                <div class="col-xs-3 bs-wizard-step active"><!-- complete -->
+                  <div class="text-center bs-wizard-stepnum">Step 4</div>
+                  <div class="progress"><div class="progress-bar"></div></div>
+                  <a href="#" class="bs-wizard-dot"></a>
+                  <div class="bs-wizard-info text-center">Choose Diet</div>
                 </div>
                 
                 <div class="col-xs-3 bs-wizard-step active"><!-- complete -->
-                  <div class="text-center bs-wizard-stepnum">Step 3</div>
+                  <div class="text-center bs-wizard-stepnum">Step 5</div>
                   <div class="progress"><div class="progress-bar"></div></div>
                   <a href="#" class="bs-wizard-dot"></a>
                   <div class="bs-wizard-info text-center">Choose Dish</div>
                 </div>
                 
                 <div class="col-xs-3 bs-wizard-step disabled"><!-- active -->
-                  <div class="text-center bs-wizard-stepnum">Step 4</div>
+                  <div class="text-center bs-wizard-stepnum">Step 6</div>
                   <div class="progress"><div class="progress-bar"></div></div>
                   <a href="#" class="bs-wizard-dot"></a>
                   <div class="bs-wizard-info text-center">Get Recipe</div>
@@ -66,42 +80,42 @@
 
   <div class="container">
   <p class="text-center"> </p>  
-  <p class="text-center"> <b>Choose at least one ingredient you have in your fridge blablablablablablalba</p>
+  <p class="text-center"> <b>On a diet? Please select your preferences</p>
 	<p class="text-center"> </p>            
 
   <form action="/curation" method="GET">
     <div class="row">
       <div class="col">
-        <label for="veg" class="image-checkbox" >
-          <img class="img-responsive" src="/images/Icons/2.png"/>
-          <input me="veg" id="veg" type="checkbox" name="veg"/>
+        <label for="pescatarian" class="image-checkbox" >
+          <img class="img-responsive" src="/images/Icons/49.png"/>
+          <input me="pescatarian" id="veg" type="checkbox" name="pescatarian"/>
         </label>
       </div>
       <div class="col">
-        <label for="fish" class="image-checkbox" >
-          <img class="img-responsive" src="/images/Icons/4.png"/>
-          <input me="fish" id="fish" type="checkbox" name="fish"/>
+        <label for="vegetarian" class="image-checkbox" >
+          <img class="img-responsive" src="/images/Icons/50.png"/>
+          <input me="vegetarian" id="vegetarian" type="checkbox" name="vegetarian"/>
         </label>
       </div>
       <div class="col">
-        <label for="cond" class="image-checkbox" >
-          <img class="img-responsive" src="/images/Icons/5.png"/>
-          <input me="cond" id="cond" type="checkbox" name="cond"/>
+        <label for="vegan" class="image-checkbox" >
+          <img class="img-responsive" src="/images/Icons/51.png"/>
+          <input me="vegan" id="vegan" type="checkbox" name="vegan"/>
         </label>
       </div>
     </div>
 
     <div class="row">
       <div class="col">
-        <label for="dairy" class="image-checkbox" >
-          <img class="img-responsive" src="/images/Icons/3.png"/>
-          <input me="dairy" id="dairy" type="checkbox" name="dairy"/>
+        <label for="lowcarb" class="image-checkbox" >
+          <img class="img-responsive" src="/images/Icons/52.png"/>
+          <input me="lowcarb" id="lowcarb" type="checkbox" name="lowcarb"/>
         </label>
       </div>
       <div class="col">
-        <label for="beans" class="image-checkbox" >
-          <img class="img-responsive" src="/images/Icons/11.png"/>
-          <input me="beans" id="beans" type="checkbox" name="beans"/>
+        <label for="glutenfree" class="image-checkbox" >
+          <img class="img-responsive" src="/images/Icons/44.png"/>
+          <input me="glutenfree" id="glutenfree" type="checkbox" name="glutenfree"/>
         </label>
       </div>
       <div class="col">
