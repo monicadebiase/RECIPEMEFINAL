@@ -16,6 +16,27 @@ router.get('/', (req, res, next) => {
 
 	res.render('home', data)
 })
+router.get('/mealtype', (req, res, next) => {
+
+	const data = req.context
+
+	res.render('mealtype', data)
+})
+
+router.get('/allergies', (req, res, next) => {
+
+	const data = req.context
+
+	res.render('allergies', data)
+})
+
+router.get('/diets', (req, res, next) => {
+
+	const data = req.context
+
+	res.render('diets', data)
+})
+
 
 router.get('/ingredients', (req, res, next) => {
 
