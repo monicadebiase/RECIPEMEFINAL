@@ -65,8 +65,8 @@ router.get('/curation', function(req, res){
     const endpoint = 'https://api.edamam.com/search'
     const query = {
       q: dish,
-      app_key: process.env.TURBO_APP_ID,
-      app_id: '40eac79a'
+      app_key: process.env.EDAMAM_KEY,
+      app_id: process.env.EDAMAM_ID
     }
 
     superagent.get(endpoint)
