@@ -29,31 +29,31 @@
 <!------ Include the above in your HEAD tag ---------->
 
 <div class="container">
-		
-        
+
+
             <div class="row bs-wizard" style="border-bottom:0;">
-                
+
                 <div class="col-xs-3 bs-wizard-step complete">
                   <div class="text-center bs-wizard-stepnum">Step 1</div>
                   <div class="progress"><div class="progress-bar"></div></div>
                   <a href="#" class="bs-wizard-dot"></a>
                   <div class="bs-wizard-info text-center">Add preferences</div>
                 </div>
-                
+
                 <div class="col-xs-3 bs-wizard-step complete"><!-- complete -->
                   <div class="text-center bs-wizard-stepnum">Step 2</div>
                   <div class="progress"><div class="progress-bar"></div></div>
                   <a href="#" class="bs-wizard-dot"></a>
                   <div class="bs-wizard-info text-center">Chosse Ingredients</div>
                 </div>
-                
+
                 <div class="col-xs-3 bs-wizard-step active"><!-- complete -->
                   <div class="text-center bs-wizard-stepnum">Step 3</div>
                   <div class="progress"><div class="progress-bar"></div></div>
                   <a href="#" class="bs-wizard-dot"></a>
                   <div class="bs-wizard-info text-center">Choose Dish</div>
                 </div>
-                
+
                 <div class="col-xs-3 bs-wizard-step disabled"><!-- active -->
                   <div class="text-center bs-wizard-stepnum">Step 4</div>
                   <div class="progress"><div class="progress-bar"></div></div>
@@ -65,70 +65,74 @@
 </div>
 
   <div class="container">
-  <p class="text-center"> </p>  
+  <p class="text-center"> </p>
   <p class="text-center"> <b>Choose at least one ingredient you have in your fridge blablablablablablalba</p>
-	<p class="text-center"> </p>            
+	<p class="text-center"> </p>
 
   <form action="/curation" method="GET">
+
+    <input type="hidden" name="mealtype" value="{{meal}}" />
+    <input type="hidden" name="ingr" value="{{ingr}}" />
+
     <div class="row">
       <div class="col">
-        <label for="veg" class="image-checkbox" >
-          <img class="img-responsive" src="/images/Icons/2.png"/>
-          <input me="veg" id="veg" type="checkbox" name="veg"/>
+        <label for="all" class="image-checkbox" >
+          <img class="img-responsive" src="/images/Icons/42.png"/>
+          <input me="all" id="all" type="checkbox" name="all"/>
         </label>
       </div>
       <div class="col">
-        <label for="fish" class="image-checkbox" >
-          <img class="img-responsive" src="/images/Icons/4.png"/>
-          <input me="fish" id="fish" type="checkbox" name="fish"/>
+        <label for="nonuts" class="image-checkbox" >
+          <img class="img-responsive" src="/images/Icons/43.png"/>
+          <input me="nonuts" id="nonuts" type="checkbox" name="nonuts"/>
         </label>
       </div>
       <div class="col">
-        <label for="cond" class="image-checkbox" >
-          <img class="img-responsive" src="/images/Icons/5.png"/>
-          <input me="cond" id="cond" type="checkbox" name="cond"/>
+        <label for="nogluten" class="image-checkbox" >
+          <img class="img-responsive" src="/images/Icons/44.png"/>
+          <input me="nogluten" id="nogluten" type="checkbox" name="nogluten"/>
         </label>
       </div>
     </div>
 
     <div class="row">
       <div class="col">
-        <label for="dairy" class="image-checkbox" >
-          <img class="img-responsive" src="/images/Icons/3.png"/>
-          <input me="dairy" id="dairy" type="checkbox" name="dairy"/>
+        <label for="nosugar" class="image-checkbox" >
+          <img class="img-responsive" src="/images/Icons/45.png"/>
+          <input me="nosugar" id="nosugar" type="checkbox" name="nosugar"/>
         </label>
       </div>
       <div class="col">
-        <label for="beans" class="image-checkbox" >
-          <img class="img-responsive" src="/images/Icons/11.png"/>
-          <input me="beans" id="beans" type="checkbox" name="beans"/>
+        <label for="noeggs" class="image-checkbox" >
+          <img class="img-responsive" src="/images/Icons/46.png"/>
+          <input me="noeggs" id="noeggs" type="checkbox" name="noeggs"/>
         </label>
       </div>
       <div class="col">
-        <label for="fruit" class="image-checkbox" >
-          <img class="img-responsive" src="/images/Icons/7.png"/>
-          <input me="fruit" id="fruit" type="checkbox" name="fruit"/>
+        <label for="nodairy" class="image-checkbox" >
+          <img class="img-responsive" src="/images/Icons/47.png"/>
+          <input me="nodairy" id="nodairy" type="checkbox" name="nodairy"/>
         </label>
       </div>
     </div>
-
     <div class="row">
       <div class="col">
-        <label for="wheat" class="image-checkbox" >
-          <img class="img-responsive" src="/images/Icons/8.png"/>
-          <input me="wheat" id="wheat" type="checkbox" name="wheat"/>
+        <label for="noshellfish" class="image-checkbox" >
+          <img class="img-responsive" src="/images/Icons/48.png"/>
+          <input me="noshellfish" id="noshellfish" type="checkbox" name="noshellfish"/>
+        </label>
+      </div>
+
+      <div class="col">
+        <label for="vegetarian" class="image-checkbox" >
+          <img class="img-responsive" src="/images/Icons/50.png"/>
+          <input me="vegetarian" id="vegetarian" type="checkbox" name="vegetarian" />
         </label>
       </div>
       <div class="col">
-        <label for="dessert" class="image-checkbox" >
-          <img class="img-responsive" src="/images/Icons/9.png"/>
-          <input me="dessert" id="dessert" type="checkbox" name="dessert" />
-        </label>
-      </div>
-      <div class="col">
-        <label for="meat" class="image-checkbox" >
-          <img class="img-responsive" src="/images/Icons/10.png"/>
-          <input me="meat" id="meat" type="checkbox" name="meat" />
+        <label for="vegan" class="image-checkbox" >
+          <img class="img-responsive" src="/images/Icons/51.png"/>
+          <input me="vegan" id="vegan" type="checkbox" name="vegan"/>
         </label>
       </div>
     </div>
