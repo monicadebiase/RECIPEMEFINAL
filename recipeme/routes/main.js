@@ -7,7 +7,16 @@ const express = require('express')
 const router = express.Router()
 const superagent = require('superagent')
 
-
+function getKeyByValue(object, value) {
+          let lst = []
+          for (var prop in object) {
+              if (object.hasOwnProperty(prop)) {
+                  if (object[prop] === value)
+                  lst.push(prop);
+              }
+          }
+          return lst
+      }
 
 //copy paste line 13-18, 20-25 (remember to change '/' to allergies and 'home' to the name of the mustache file)
 router.get('/', (req, res, next) => {
@@ -16,52 +25,45 @@ router.get('/', (req, res, next) => {
 
 	res.render('home', data)
 })
+
 router.get('/mealtype', (req, res, next) => {
 
 	const data = req.context
 
-	res.render('mealtype', data)
+	res.render('mealtype')
+})
+
+router.get('/ingredients', (req, res, next) => {
+
+  let catg = {
+    Breakfast : req.query.breakfast,
+    Lunch : req.query.lunch,
+    Dinner : req.query.dinner,
+    Snack : req.query.snack,
+    Teamtime : req.query.teatime,
+    }
+
+  let meal = getKeyByValue(catg, "on");
+  meal = meal.join(" ")
+
+  if (meal == null){
+    res.json({
+      confirmation: 'fail',
+      message: 'Please enter a query paramter!'
+    })
+    return
+  }
+
+	res.render('ingredients', {meal: meal})
 })
 
 router.get('/allergies', (req, res, next) => {
 
-	const data = req.context
-
-	res.render('allergies', data)
-})
-
-router.get('/diets', (req, res, next) => {
-
-	const data = req.context
-
-	res.render('diets', data)
-})
-
-
-router.get('/ingredients', (req, res, next) => {
-
-  const data = req.context
-
-	res.render('ingredients', data)
-})
-
-router.get('/curation', function(req, res){
-
-  function getKeyByValue(object, value) {
-            let lst = []
-            for (var prop in object) {
-                if (object.hasOwnProperty(prop)) {
-                    if (object[prop] === value)
-                    lst.push(prop);
-                }
-            }
-            return lst
-        }
 
   let catg = {
-    veg : req.query.veg,
+    vegetables : req.query.veg,
     fish : req.query.fish,
-    cond : req.query.cond,
+    condiments : req.query.cond,
     dairy : req.query.dairy,
     beans : req.query.beans,
     fruit : req.query.fruit,
@@ -70,25 +72,57 @@ router.get('/curation', function(req, res){
     meat : req.query.meat
     }
 
+  let ingr = getKeyByValue(catg, "on");
+  ingr = ingr.join(" ")
+
+  const data = {
+    meal : req.query.mealtype,
+    ingr : ingr
+  }
+
+  res.render('allergies', data)
+})
+
+router.get('/curation', (req, res) => {
+
+  const meal = req.query.mealtype
+  const ingr = req.query.ingr
+
+  let catg = {
+    "tree-nut-free" : req.query.nonuts,
+    "peanut-free" : req.query.nonuts,
+    "gluten-free" : req.query.nogluten,
+    "low-sugar" : req.query.nosugar,
+    "egg-free" : req.query.noeggs,
+    "dairy-free" : req.query.nodairy,
+    "shellfish-free" : req.query.noshellfish,
+    "vegetarian" : req.query.vegetarian,
+    "vegan" : req.query.vegan
+    }
+
   // ans stores an array of the categories the user selected
   const ans = getKeyByValue(catg, "on");
-  const dish = ans.join(" ")
+  const health = ans.join(" ")
 
-
-  if (dish == null){
+  if (health == null){
     res.json({
       confirmation: 'fail',
       message: 'Please enter a query paramter!'
     })
     return
   }
-    
+
+  // only if the parameters are defined
+
     const endpoint = 'https://api.edamam.com/search'
-    const query = {
-      q: dish,
+    let query = {
       app_key: process.env.EDAMAM_KEY,
       app_id: process.env.EDAMAM_ID
     }
+
+    if( ingr ) { query["q"] = ingr; }
+    if( health ) { query["health"] = health; }
+    if( meal ) { query["meal"] = meal; }
 
     //API call executed
     superagent.get(endpoint)
@@ -108,7 +142,7 @@ router.get('/curation', function(req, res){
 
       json_data = response.body || response.text;
       //forEach = for every recipe (for loop)
-      feed = []; 
+      feed = [];
       json_data.hits.forEach((post, i) => {
 
         feed.push({
@@ -133,73 +167,10 @@ router.get('/curation', function(req, res){
       res.render('curation', {feed: feed})
       return
     })
-
-
 })
-
-
-
-
-// stuck here - have to find recipe based on the params sent. dont have access to variables declared for different routers
 
 router.get('/recipe', (req, res, next) => {
 
-/*  const i = req.query.hit
-
-  let r = json_data.hits[i]
-
-  let features = {
-    label : r.label
-  }*/
-  // find recipe in data where x == data.recipe.label
-
-
-
-/*    const endpoint = 'https://api.edamam.com/search'
-    const query = {
-      q: dish,
-      app_key: process.env.TURBO_APP_ID,
-      app_id: '40eac79a'
-    }
-
-    superagent.get(endpoint)
-    .query(query)
-    .set('Accept', 'application/json')
-    .end((err, response) => {
-      if (err){
-        res.json({
-          confirmation: 'fail',
-          message: err.message
-        })
-
-        return
-      }
-
-
-
-      let json_data = response.body || response.text;
-
-      let feed = [];
-      json_data.hits.forEach((post, i) => {
-
-        feed.push({
-          label: post.recipe.label,
-          image: post.recipe.image,
-          url: post.recipe.url,
-          yield: post.recipe.yield,
-          ingr: post.recipe.ingredients
-        })
-
-      })
-
-
-
-
-      res.render('recipe', {feed: feed})
-      return
-    })
-
-*/
   const data = {
     label : req.query.label,
     image : req.query.image,
@@ -215,7 +186,6 @@ router.get('/recipe', (req, res, next) => {
     }
 
   res.render('recipe', data)
-
 })
 
 module.exports = router
