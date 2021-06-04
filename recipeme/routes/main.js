@@ -9,13 +9,34 @@ const superagent = require('superagent')
 
 
 
-
+//copy paste line 13-18, 20-25 (remember to change '/' to allergies and 'home' to the name of the mustache file)
 router.get('/', (req, res, next) => {
 
 	const data = req.context
 
 	res.render('home', data)
 })
+router.get('/mealtype', (req, res, next) => {
+
+	const data = req.context
+
+	res.render('mealtype', data)
+})
+
+router.get('/allergies', (req, res, next) => {
+
+	const data = req.context
+
+	res.render('allergies', data)
+})
+
+router.get('/diets', (req, res, next) => {
+
+	const data = req.context
+
+	res.render('diets', data)
+})
+
 
 router.get('/ingredients', (req, res, next) => {
 
@@ -61,7 +82,7 @@ router.get('/curation', function(req, res){
     })
     return
   }
-
+    
     const endpoint = 'https://api.edamam.com/search'
     const query = {
       q: dish,
@@ -69,6 +90,7 @@ router.get('/curation', function(req, res){
       app_id: process.env.EDAMAM_ID
     }
 
+    //API call executed
     superagent.get(endpoint)
     .query(query)
     .set('Accept', 'application/json')
@@ -85,8 +107,8 @@ router.get('/curation', function(req, res){
 
 
       json_data = response.body || response.text;
-
-      feed = [];
+      //forEach = for every recipe (for loop)
+      feed = []; 
       json_data.hits.forEach((post, i) => {
 
         feed.push({
