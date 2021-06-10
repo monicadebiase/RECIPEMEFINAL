@@ -84,10 +84,23 @@ router.get('/curation', function(req, res){
   }
     
     const endpoint = 'https://api.edamam.com/search'
+<<<<<<< Updated upstream
     const query = {
       q: dish,
       app_key: process.env.TURBO_APP_ID,
       app_id: '40eac79a'
+=======
+<<<<<<< Updated upstream
+    let query = {
+      app_key: process.env.EDAMAM_KEY,
+      app_id: process.env.EDAMAM_ID
+=======
+    const query = {
+      q: 'chicken',
+      app_key: "69f9e0d97c5b34db89742f133b949fdc",
+      app_id: '40eac79a'
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
     }
 
     //API call executed
