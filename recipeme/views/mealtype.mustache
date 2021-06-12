@@ -29,45 +29,30 @@
 <!------ Include the above in your HEAD tag ---------->
 
 <div class="container">
-		
-        
+
             <div class="row bs-wizard" style="border-bottom:0;">
-                
-                <div class="col-xs-3 bs-wizard-step complete">
+
+                <div class="col-xs-3 bs-wizard-step active">
                   <div class="text-center bs-wizard-stepnum">Step 1</div>
                   <div class="progress"><div class="progress-bar"></div></div>
                   <a href="#" class="bs-wizard-dot"></a>
                   <div class="bs-wizard-info text-center">Choose Mealtype</div>
                 </div>
-                
-                <div class="col-xs-3 bs-wizard-step complete"><!-- complete -->
+
+                <div class="col-xs-3 bs-wizard-step disabled">
                   <div class="text-center bs-wizard-stepnum">Step 2</div>
                   <div class="progress"><div class="progress-bar"></div></div>
                   <a href="#" class="bs-wizard-dot"></a>
                   <div class="bs-wizard-info text-center">Choose Main Ingredients</div>
                 </div>
 
-                <div class="col-xs-3 bs-wizard-step active"><!-- complete -->
-                  <div class="text-center bs-wizard-stepnum">Step 3</div>
-                  <div class="progress"><div class="progress-bar"></div></div>
-                  <a href="#" class="bs-wizard-dot"></a>
-                  <div class="bs-wizard-info text-center">Choose Allergies</div>
-                </div>
-
-                <div class="col-xs-3 bs-wizard-step active"><!-- complete -->
-                  <div class="text-center bs-wizard-stepnum">Step 4</div>
+                <div class="col-xs-3 bs-wizard-step disabled"><!-- complete -->
+                  <div class="text-center bs-wizard-stepnum">Step 5</div>
                   <div class="progress"><div class="progress-bar"></div></div>
                   <a href="#" class="bs-wizard-dot"></a>
                   <div class="bs-wizard-info text-center">Choose Diet</div>
                 </div>
-                
-                <div class="col-xs-3 bs-wizard-step active"><!-- complete -->
-                  <div class="text-center bs-wizard-stepnum">Step 5</div>
-                  <div class="progress"><div class="progress-bar"></div></div>
-                  <a href="#" class="bs-wizard-dot"></a>
-                  <div class="bs-wizard-info text-center">Choose Dish</div>
-                </div>
-                
+
                 <div class="col-xs-3 bs-wizard-step disabled"><!-- active -->
                   <div class="text-center bs-wizard-stepnum">Step 6</div>
                   <div class="progress"><div class="progress-bar"></div></div>
@@ -75,32 +60,33 @@
                   <div class="bs-wizard-info text-center">Get Recipe</div>
                 </div>
             </div>
+
 	</div>
-</div>
 
   <div class="container">
-  <p class="text-center"> </p>  
+  <p class="text-center"> </p>
   <p class="text-center"> <b>What type of meal do you want to cook today?</p>
-	<p class="text-center"> </p>            
+	<p class="text-center"> </p>
+
 
   <form action="/Ingredients" method="GET">
     <div class="row">
       <div class="col">
         <label for="breakfast" class="image-checkbox" >
-          <img class="img-responsive" src="/images/Icons/60.png"/>
-          <input me="veg" id="breakfast" type="checkbox" name="breakfast"/>
+          <img class="img-responsive" src="/images/Icons/60.png" style="height:350px; width:350px;"/>
+          <input me="breakfast" id="breakfast" type="checkbox" name="breakfast"/>
         </label>
       </div>
-      <div class="lunch">
-        <label for="fish" class="image-checkbox" >
-          <img class="img-responsive" src="/images/Icons/61.png"/>
-          <input me="fish" id="lunch" type="checkbox" name="lunch"/>
+      <div class="col">
+        <label for="lunch" class="image-checkbox" >
+          <img class="img-responsive" src="/images/Icons/61.png" style="height:350px; width:350px;"/>
+          <input me="lunch" id="lunch" type="checkbox" name="lunch"/>
         </label>
       </div>
-      <div class="dinner">
-        <label for="cond" class="image-checkbox" >
-          <img class="img-responsive" src="/images/Icons/62.png"/>
-          <input me="cond" id="dinner" type="checkbox" name="dinner"/>
+      <div class="col">
+        <label for="dinner" class="image-checkbox" >
+          <img class="img-responsive" src="/images/Icons/62.png" style="height:350px; width:350px;"/>
+          <input me="dinner" id="dinner" type="checkbox" name="dinner"/>
         </label>
       </div>
     </div>
@@ -109,6 +95,7 @@
       <button class="btn btn-outline-danger btn-block px-10 py-3 mt-3">Next</button>
   </div>
   </form>
+
   </div>
 
 
@@ -122,6 +109,4 @@
 
 
   </body>
-  }
-  }
 </html>
