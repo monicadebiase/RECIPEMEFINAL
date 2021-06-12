@@ -39,8 +39,6 @@ router.get('/ingredients', (req, res, next) => {
     Breakfast : req.query.breakfast,
     Lunch : req.query.lunch,
     Dinner : req.query.dinner,
-    Snack : req.query.snack,
-    Teamtime : req.query.teatime,
     }
 
   let meal = getKeyByValue(catg, "on");
@@ -63,13 +61,13 @@ router.get('/allergies', (req, res, next) => {
   let catg = {
     vegetables : req.query.veg,
     fish : req.query.fish,
-    condiments : req.query.cond,
     dairy : req.query.dairy,
     beans : req.query.beans,
     fruit : req.query.fruit,
     wheat : req.query.wheat,
-    dessert : req.query.dessert,
-    meat : req.query.meat
+    canned : req.query.canned,
+    meat : req.query.meat,
+    lemon : req.query.lemon
     }
 
   let ingr = getKeyByValue(catg, "on");
