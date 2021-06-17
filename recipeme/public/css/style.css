@@ -60,7 +60,18 @@ body {
   text-align: left;
   background-color: #EFEDE8; }
 
+  .centerIconsClass {
+    width: 50%;
+    margin: auto;
+    display: block;
+  }
 
+  .buttonclass {
+    width: 45%;
+    margin: auto;
+    display: block;
+    border: 5px solid black;
+  }
 
 [tabindex="-1"]:focus {
   outline: 0 !important; }
