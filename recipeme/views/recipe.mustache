@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {{>header}}
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+</head>
+<body>
+
+  {{>nav}}
+
+
+
+
+
+  <div class='recipe-card'>
+    <div style="background:url({{image}}) no-repeat 50% 50%; background-size:cover; height: 150px"></div>
+    <div class="recipe-card__body">
+      <h1 class="recipe-card__heading">{{label}}</h1>
+      <h2 class="recipe-card__subhead">Crunchy around the edges, softer in the center, these oatmeal cookies feature the nutty taste and nubbly texture of oats. </h2>
+
+      <ul class="recipe-card__nav">
+        <li>
+          <h3 class="active">Ingredients</h3>
+        </li>
+        <li>
+          <h3>Method</h3>
+        </li>
+      </ul>
+
+
+
+      <ul class="recipe-card__ingredients">
+        {{#ingr}}
+
+        <li>{{text}}</li>
+
+        {{/ingr}}
+
+      </ul>
+    </div>
+
+  </div>
+
+
+
+
+
+  {{>scripts}}
+
+
+
+</body>
+</html>

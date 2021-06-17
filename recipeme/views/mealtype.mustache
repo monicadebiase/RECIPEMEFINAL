@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {{>header}}
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  </head>
+  <body>
+
+	  {{>nav}}
+    <!-- END nav -->
+
+    <section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_4.jpg');" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center">
+            <h1 class="mb-2 bread">Meal Type</h1>
+            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Blog <i class="ion-ios-arrow-forward"></i></span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {{data}}
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+
+            <div class="row bs-wizard" style="border-bottom:0;">
+
+                <div class="col-xs-3 bs-wizard-step active">
+                  <div class="text-center bs-wizard-stepnum">Step 1</div>
+                  <div class="progress"><div class="progress-bar"></div></div>
+                  <a href="#" class="bs-wizard-dot"></a>
+                  <div class="bs-wizard-info text-center">Choose Mealtype</div>
+                </div>
+
+                <div class="col-xs-3 bs-wizard-step disabled">
+                  <div class="text-center bs-wizard-stepnum">Step 2</div>
+                  <div class="progress"><div class="progress-bar"></div></div>
+                  <a href="#" class="bs-wizard-dot"></a>
+                  <div class="bs-wizard-info text-center">Choose Main Ingredients</div>
+                </div>
+
+                <div class="col-xs-3 bs-wizard-step disabled"><!-- complete -->
+                  <div class="text-center bs-wizard-stepnum">Step 5</div>
+                  <div class="progress"><div class="progress-bar"></div></div>
+                  <a href="#" class="bs-wizard-dot"></a>
+                  <div class="bs-wizard-info text-center">Choose Diet</div>
+                </div>
+
+                <div class="col-xs-3 bs-wizard-step disabled"><!-- active -->
+                  <div class="text-center bs-wizard-stepnum">Step 6</div>
+                  <div class="progress"><div class="progress-bar"></div></div>
+                  <a href="#" class="bs-wizard-dot"></a>
+                  <div class="bs-wizard-info text-center">Get Recipe</div>
+                </div>
+            </div>
+
+	</div>
+
+  <div class="container">
+  <p class="text-center"> </p>
+  <p class="text-center"> <b>What type of meal do you want to cook today?</p>
+	<p class="text-center"> </p>
+
+
+  <form action="/Ingredients" method="GET">
+    <div class="row">
+      <div class="col">
+        <label for="breakfast" class="image-checkbox" >
+          <img class="img-responsive" src="/images/Icons/Breakfast.png" style="height:350px; width:350px;"/>
+          <input me="breakfast" id="breakfast" type="checkbox" name="breakfast"/>
+        </label>
+      </div>
+      <div class="col">
+        <label for="lunch" class="image-checkbox" >
+          <img class="img-responsive" src="/images/Icons/Lunch.png" style="height:350px; width:350px;"/>
+          <input me="lunch" id="lunch" type="checkbox" name="lunch"/>
+        </label>
+      </div>
+      <div class="col">
+        <label for="dinner" class="image-checkbox" >
+          <img class="img-responsive" src="/images/Icons/Dinner.png" style="height:350px; width:350px;"/>
+          <input me="dinner" id="dinner" type="checkbox" name="dinner"/>
+        </label>
+      </div>
+    </div>
+
+    <div>
+      <button class="btn btn-outline-danger btn-block px-10 py-3 mt-3">Next</button>
+  </div>
+  </form>
+
+  </div>
+
+
+    <footer class="ftco-footer ftco-bg-dark ftco-section">
+        {{>footer}}
+    </footer>
+
+
+  <!-- loader -->
+  {{>scripts}}
+
+
+  </body>
+</html>
